@@ -1,8 +1,14 @@
-public class ArrayTask{
+import java.io.Serializable;
 
+public class ArrayTask implements Serializable {
+
+    private static final long serialversionUID = 1L;
     private Task[] tasks;
     private int numTasks;
 
+
+    public String name;
+    public ArrayTask taskList;
 
     /**
      * Default constructor 
@@ -59,13 +65,10 @@ public class ArrayTask{
     }
 
     public boolean deleteTaskAtIndex(int taskNum){
-
-      
          // Check if the index is valid
         if(taskNum>numTasks-1|| taskNum<0)
         return false;
-       
-        
+
           // Shift all tasks after the deleted task to the left
         for(int index = taskNum; index<numTasks-1; index++){
             tasks[index] = tasks[index+1];
@@ -78,14 +81,13 @@ public class ArrayTask{
         return true;
     }
 
-        public boolean deleteAllTask(){
+        public void deleteAllTask(){
 
             while(numTasks!=0){
                 tasks[numTasks-1] = null;
                 numTasks--;
             }
-            
-            return true;
+
         }
 
 
@@ -98,10 +100,20 @@ public class ArrayTask{
             tasks = newTasks;
         }
 
-        public void moveToEnd(Task task){
+        public void sortByDate(){
 
-        Task temp = task;
+        }
 
+        public void sortByPriority(){
+
+        }
+
+
+        public void editTask(int index, String task, String description, String taskPriority){
+
+
+            Task tempTask = new Task(task, description, taskPriority);
+            tasks[index] = tempTask;
 
 
         }

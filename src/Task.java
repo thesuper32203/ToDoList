@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
- class Task {
+ class Task implements Serializable {
     
 
     String task;
