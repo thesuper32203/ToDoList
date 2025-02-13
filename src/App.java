@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-
-
 public class App {
     /**
      * @param args
@@ -14,13 +12,14 @@ public class App {
         
         ArrayTask taskList = new ArrayTask();
         try (Scanner scan = new Scanner(System.in)) {
+            //starts program
             while(true){
 
             System.out.println("Pick an option ");
-            //displays optinos
-            for(int i = 0; i<options.length; i++){
-                System.out.println(options[i].toString());
-            }
+            //displays options
+                for (String option : options) {
+                    System.out.println(option);
+                }
             
             int userInput = -1;
 
@@ -39,10 +38,10 @@ public class App {
                 
             }
 
-
+            //Add section
             if(userInput == 1){
                 while(true){
-                String repeat = new String();
+                String repeat;
                 Task task = new Task();
 
                 System.out.println("Type the task you want done");
@@ -53,7 +52,26 @@ public class App {
                 String taskDescription = scan.nextLine();
                 task.setDescription(taskDescription);
 
-                taskList.insertTask(task);
+                System.out.println("What priority level (Low, Medium, High");
+                while(true) {
+
+                    String taskPriority = scan.nextLine();
+
+                    if(taskPriority.equalsIgnoreCase("Low") ||
+                            taskPriority.equalsIgnoreCase("Medium") ||
+                            taskPriority.equalsIgnoreCase("High")) {
+                        task.setTaskPriority(taskPriority);
+                        break;
+                    }
+               else{
+                   System.out.println("Please enter valid setting ");
+                    }
+                }
+                if(task.getTaskPriority().equalsIgnoreCase("High")){
+                    taskList.insertTaskAtBeginning(task);
+                }
+                else
+                    taskList.insertTask(task);
                 System.out.println("Task added!");
 
                 System.out.println("Would you like to add another task? (Y/N)");

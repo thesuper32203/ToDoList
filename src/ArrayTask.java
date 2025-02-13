@@ -29,8 +29,9 @@ public class ArrayTask{
 
     public void insertTask(Task taskInfo){
 
-        if(numTasks == tasks.length)
-        this.increaseSize();
+        if(numTasks == tasks.length) {
+            this.increaseSize();
+        }
         if(numTasks < tasks.length){
             tasks[numTasks] = taskInfo;
             numTasks++;
@@ -91,6 +92,14 @@ public class ArrayTask{
                 newTasks[i] = tasks[i];
             }
             tasks = newTasks;
+        }
+
+        public void moveToEnd(Task task){
+
+        Task temp = task;
+
+
+
         }
 
         public String toString(){

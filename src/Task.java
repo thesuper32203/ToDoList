@@ -1,21 +1,28 @@
-public class Task {
+import java.time.LocalDateTime;
+
+ class Task {
     
 
     String task;
     String description;
-
+    LocalDateTime dateTime;
+    String taskPriority;
 
     public Task(){
 
         task = new String();
         description = new String();
+        dateTime = LocalDateTime.now();
+        taskPriority = "Low";
 
     }
 
-    public Task(String task, String description){
+    public Task(String task, String description, String taskPriority){
 
         this.task = task;
         this.description = description;
+        dateTime = LocalDateTime.now();
+        this.taskPriority = taskPriority;
 
     }
 
@@ -35,10 +42,22 @@ public class Task {
         this.description = description;
     }
 
-    public String toString(){
+     public String getTaskPriority() {
+         return taskPriority;
+     }
+
+     public void setTaskPriority(String taskPriority) {
+         this.taskPriority = taskPriority;
+     }
+
+
+
+     public String toString(){
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Task: " + task);
+        sb.append("Time Created - " + dateTime );
+        sb.append("\nPriority: " + taskPriority);
+        sb.append("\nTask: " + task);
         sb.append("\nDesc: " + description);
         sb.append("\n");
         return sb.toString();
