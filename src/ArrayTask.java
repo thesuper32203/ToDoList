@@ -41,13 +41,17 @@ public class ArrayTask{
 
     public void insertTaskAtBeginning(Task task){
 
+
         if(numTasks == tasks.length){
             this.increaseSize();
         }
 
-        for(int i = numTasks; i>0; i++){
+
+
+        for(int i = numTasks; i>0; i--){
             tasks[i] = tasks[i-1];
         }
+
         tasks[0] = task;
         numTasks++;
 

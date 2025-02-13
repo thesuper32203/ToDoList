@@ -52,7 +52,7 @@ public class App {
                 String taskDescription = scan.nextLine();
                 task.setDescription(taskDescription);
 
-                System.out.println("What priority level (Low, Medium, High");
+                System.out.println("What priority level (Low, Medium, High)");
                 while(true) {
 
                     String taskPriority = scan.nextLine();
@@ -67,6 +67,7 @@ public class App {
                    System.out.println("Please enter valid setting ");
                     }
                 }
+                //if user chose high priority move it to beginning of the list
                 if(task.getTaskPriority().equalsIgnoreCase("High")){
                     taskList.insertTaskAtBeginning(task);
                 }
